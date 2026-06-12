@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A fast, community-verified companion for Starsand Island gifts, crafting materials, fish, crops, and quests.">
+  <meta name="theme-color" content="#123c3a">
+  <title>Island Ledger | Starsand Island Companion</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Island Ledger home">
+      <span class="brand-mark">IL</span>
+      <span>Island Ledger<small>Starsand Island companion</small></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#gifts">Gifts</a>
+      <a href="#crafting">Crafting</a>
+      <a href="#database">Database</a>
+      <a href="#checklist">Checklist</a>
+    </nav>
+    <button class="theme-button" id="themeButton" type="button" aria-label="Toggle theme">Night</button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Independent fan-made toolkit</p>
+        <h1>Spend less time searching.<br><em>Enjoy more island life.</em></h1>
+        <p class="hero-text">Quick answers for gifts, crafting, fishing, farming, and progression. Every record shows its verification status, so you know what to trust.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#gifts">Find a gift</a>
+          <a class="button secondary" href="#crafting">Calculate materials</a>
+        </div>
+        <p class="notice"><strong>Early data preview:</strong> the site structure is ready, but most records still need in-game verification.</p>
+      </div>
+      <aside class="today-card">
+        <div class="today-head">
+          <span>Quick planner</span>
+          <span class="status-dot">Live locally</span>
+        </div>
+        <p class="season">Summer · Day <strong id="dayNumber">12</strong></p>
+        <label for="dayRange">Choose day</label>
+        <input id="dayRange" type="range" min="1" max="28" value="12">
+        <div class="quick-grid">
+          <div><strong id="verifiedCount">0</strong><span>verified records</span></div>
+          <div><strong id="checkCount">0</strong><span>tasks complete</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="tool-section" id="gifts">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Relationships</p>
+          <h2>Gift finder</h2>
+        </div>
+        <p>Search a villager or item. Verified discoveries are shown first.</p>
+      </div>
+      <div class="search-row">
+        <label class="search-box">
+          <span>Search</span>
+          <input id="giftSearch" type="search" placeholder="Try “Neona” or “quartz”">
+        </label>
+        <select id="giftFilter" aria-label="Filter gift verification status">
+          <option value="all">All records</option>
+          <option value="verified">Verified only</option>
+          <option value="needs-check">Needs checking</option>
+        </select>
+      </div>
+      <div class="card-grid" id="giftResults"></div>
+    </section>
+
+    <section class="tool-section split-section" id="crafting">
+      <div>
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow">Workshop</p>
+            <h2>Crafting calculator</h2>
+          </div>
+        </div>
+        <p class="section-intro">Select a goal and quantity to calculate its base materials, including intermediate components.</p>
+        <div class="calculator-controls">
+          <label>Target item
+            <select id="recipeSelect"></select>
+          </label>
+          <label>Quantity
+            <input id="recipeQuantity" type="number" min="1" max="99" value="1">
+          </label>
+        </div>
+        <div class="recipe-summary" id="recipeSummary"></div>
+      </div>
+      <div class="material-panel">
+        <p class="panel-label">Total base materials</p>
+        <div id="materialResults"></div>
+        <button class="button secondary full" id="copyMaterials" type="button">Copy shopping list</button>
+      </div>
+    </section>
+
+    <section class="tool-section" id="database">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Field notes</p>
+          <h2>Fish & crop database</h2>
+        </div>
+        <p>Filter records quickly while playing. Prices are intentionally omitted until verified.</p>
+      </div>
+      <div class="tab-row" role="tablist" aria-label="Database category">
+        <button class="tab active" data-category="fish" type="button">Fish</button>
+        <button class="tab" data-category="crop" type="button">Crops</button>
+      </div>
+      <div class="filter-chips" id="filterChips"></div>
+      <div class="database-list" id="databaseResults"></div>
+    </section>
+
+    <section class="tool-section" id="checklist">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Progress</p>
+          <h2>Starter checklist</h2>
+        </div>
+        <p>Your progress is saved privately in this browser.</p>
+      </div>
+      <div class="checklist" id="checklistItems"></div>
+      <button class="text-button" id="resetChecklist" type="button">Reset checklist</button>
+    </section>
+
+    <section class="contribute">
+      <div>
+        <p class="eyebrow">Built with players</p>
+        <h2>Found something we should add?</h2>
+        <p>Send the item, location, season, or screenshot source. Community submissions are marked unverified until independently checked.</p>
+      </div>
+      <a class="button primary" id="reportLink" href="mailto:hello@example.com?subject=Island%20Ledger%20data%20submission">Submit a discovery</a>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Island Ledger</strong> is an unofficial fan project and is not affiliated with the game developer or publisher.</p>
+    <p>Game names and trademarks belong to their respective owners. No game artwork is used on this site.</p>
+  </footer>
+</body>
+</html>
